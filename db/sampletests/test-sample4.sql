@@ -1,0 +1,7 @@
+USE crime_db;
+
+DELETE FROM Victim WHERE dr_num = 300001111;
+DELETE FROM Coordinates WHERE dr_num = 300001111;
+DELETE FROM Times WHERE dr_num = 300001111;
+DELETE FROM Crime_Records WHERE dr_num = 300001111;
+
