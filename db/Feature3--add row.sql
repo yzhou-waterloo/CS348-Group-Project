@@ -17,7 +17,7 @@ INSERT INTO Times VALUES
 (?, ?, ?, ?);
 
 INSERT INTO Coordinates VALUES
-(?, 34.?, ?);
+(?, ?, ?);
 
 INSERT INTO Victim VALUES
 (?, ?, ?, ?);
