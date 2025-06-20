@@ -1,12 +1,17 @@
 import { FastifyRequest, FastifyReply } from 'fastify'
-
+import { loadSql } from '../../db/loadSql';
+import db from '../../db/db'
 import { PingBody } from '../typedefine'
-
+const exactSearchQuery = loadSql('Feauture4.sql');
 export default {
-    async ping(request: FastifyRequest<{ Querystring: PingBody }>, reply: FastifyReply) {
+    async search(request: FastifyRequest<{ Querystring: PingBody }>, reply: FastifyReply) {
         const { dr_num } = request.query
-        const response = { message: dr_num * 2 }
-        reply.send(response)
+        try {
+            const [rows] = await db.execute(exactSearchQuery, [dr_num]); // exact match
+            reply.send(rows);
+          } catch (err) {
+            reply.status(500).send({ error: 'Database error', details: err });
+          }
     },
 
     async randInt(request: FastifyRequest, reply: FastifyReply) {
