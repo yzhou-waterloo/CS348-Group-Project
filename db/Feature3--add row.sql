@@ -1,6 +1,23 @@
 USE crime_db;
 
-INSERT INTO Crime_Records VALUES (999999999, NULL, 7, 354);
-INSERT INTO Time VALUES (999999999, '2024-12-12', '2024-12-12', '12:12:12');
-INSERT INTO Coordinates VALUES (999999999, 34.1234, -118.4567);
-INSERT INTO Victim VALUES (999999999, 38, 'M', 'B');
+INSERT INTO Weapon VALUES
+(?, ?);
+
+INSERT INTO Area VALUES
+(?, ?);
+
+INSERT INTO Crime VALUES
+(?, ?);
+
+
+INSERT INTO Crime_Records VALUES
+(?, ?, ?, ?);
+
+INSERT INTO Times VALUES
+(?, ?, ?, ?);
+
+INSERT INTO Coordinates VALUES
+(?, 34.?, ?);
+
+INSERT INTO Victim VALUES
+(?, ?, ?, ?);
