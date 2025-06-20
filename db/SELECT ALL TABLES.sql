@@ -27,3 +27,4 @@ LEFT JOIN Weapon w ON cr.weapon_code = w.weapon_code
 LEFT JOIN Times t ON cr.dr_num = t.dr_num
 LEFT JOIN Victim v ON cr.dr_num = v.dr_num
 LEFT JOIN Coordinates co ON cr.dr_num = co.dr_num
+WHERE cr.dr_num = ?;
