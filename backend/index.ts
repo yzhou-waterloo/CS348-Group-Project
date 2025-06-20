@@ -3,6 +3,14 @@ import mysql, { Pool } from "mysql2"
 import cors from "@fastify/cors"
 import registerRoutes from "./routes/registerRoutes";
 
+type SqlCredentials = {
+    host: string,
+    port: number,
+    user: string,
+    password: string,
+    database: string,
+}
+
 const server = Fastify( {logger: true, trustProxy: true} )
 // IP provider
 server.register(cors, {
