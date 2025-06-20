@@ -1,0 +1,3 @@
+USE crime_db;
+
+DELETE FROM crime_records WHERE dr_num = '';
