@@ -1,7 +1,7 @@
 # CS348-Group-Project
 CS348 Group Project
 
-___
+***
 Frontend
 
 Install dependencies:
