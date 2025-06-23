@@ -1,6 +1,7 @@
 # CS348-Group-Project
 CS348 Group Project
 
+***
 Frontend
 
 Install dependencies:
@@ -17,6 +18,23 @@ Open [http://localhost:3000](http://localhost:3000)
 - [http://localhost:3000/get](http://localhost:3000/get) to view the GET page
 - [http://localhost:3000/delete](http://localhost:3000/delete) to view the DELETE page
 
+___
+Backend:
+
+Inside /backend:
+Install dependencies:
+```bash
+npm install
+```
+
+Run:
+```bash
+npm run dev
+```
+
+The server should not be listening on port 8080 and can serve frontend requests.
+
+___
 DateBase
 
 1. How to Create and Load the Sample Database
