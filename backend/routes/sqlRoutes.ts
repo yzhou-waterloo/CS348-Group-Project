@@ -4,8 +4,8 @@ import sqlHandler from "../routeHandlers/sqlHandler"
 
 export default {
     registerRoutes(server: FastifyInstance) {
-        server.get("/search", {
-            handler: sqlHandler.search,
+        server.get("/searchAll", {
+            handler: sqlHandler.searchAll,
         }),
 
         server.get("/randInt", {
