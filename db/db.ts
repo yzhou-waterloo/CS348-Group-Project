@@ -1,13 +1,12 @@
-import mysql from 'mysql2';
+import mysql from 'mysql2/promise';
 
 const pool = mysql.createPool({
   host: 'localhost',
   user: 'root',
-  password: 'password',
-  database: 'crime_db',
+  password: 'your_password',
+  database: 'sampledb',
   waitForConnections: true,
   connectionLimit: 10
-}).promise();
-
+});
 
 export default pool;

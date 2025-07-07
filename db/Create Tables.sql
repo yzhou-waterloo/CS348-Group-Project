@@ -40,13 +40,8 @@ CREATE TABLE Crime_Records (
 CREATE TABLE Victim (
     dr_num INT PRIMARY KEY,
     age INT CHECK (age >= 0),
-<<<<<<< HEAD
     sex CHAR(1) NOT NULL,
     race CHAR(1) NOT NULL,
-=======
-    sex CHAR(1),
-    race CHAR(1),
->>>>>>> 01266a109480a298b4d65c53b41f4c5520331cea
     FOREIGN KEY (dr_num) REFERENCES Crime_Records(dr_num)
     ON DELETE CASCADE
 );

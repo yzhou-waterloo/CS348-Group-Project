@@ -22,19 +22,10 @@ ___
 Backend:
 
 Inside /backend:
-<<<<<<< HEAD
-=======
-
->>>>>>> 01266a109480a298b4d65c53b41f4c5520331cea
 Install dependencies:
 ```bash
 npm install
 ```
-<<<<<<< HEAD
-=======
-Database connection setup: In /backend/db.ts, fill in the database credentials (host, user, password, database). The server will attempt to connect 
-to it when launched and will exit if the connection failed.
->>>>>>> 01266a109480a298b4d65c53b41f4c5520331cea
 
 Run:
 ```bash
