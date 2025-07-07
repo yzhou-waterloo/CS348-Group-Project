@@ -7,6 +7,7 @@ const pool = mysql.createPool({
   database: 'crime_db',
   waitForConnections: true,
   connectionLimit: 10
-});
+}).promise();
+
 
 export default pool;

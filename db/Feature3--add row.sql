@@ -1,5 +1,3 @@
-USE crime_db;
-
 INSERT INTO Weapon VALUES
 (?, ?);
 
