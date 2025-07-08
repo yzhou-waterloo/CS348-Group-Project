@@ -13,4 +13,4 @@ LEFT OUTER JOIN weapon w ON cr.weapon_code = w.weapon_code
 JOIN times t ON cr.dr_num = t.dr_num
 LEFT OUTER JOIN victim v ON cr.dr_num = v.dr_num
 LEFT OUTER JOIN coordinates co ON cr.dr_num = co.dr_num
-WHERE a.area_code = 12;
+WHERE a.area_name LIKE '%77th Street%' and t.date_occurred > '2020-12-13';

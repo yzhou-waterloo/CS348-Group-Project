@@ -3,6 +3,6 @@ SELECT
 FROM crime_records cr
 JOIN crime c ON cr.crime_code = c.crime_code
 JOIN victim v ON cr.dr_num = v.dr_num
-JOIN times t ON cr.dr_num = t.dr_num
+JOIN time t ON cr.dr_num = t.dr_num
 JOIN area a ON cr.area_code = a.area_code
 ORDER BY v.age DESC;

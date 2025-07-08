@@ -1,0 +1,1 @@
+CREATE INDEX idx_victim_age ON victim(age);

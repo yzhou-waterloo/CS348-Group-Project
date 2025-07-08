@@ -1,6 +1,3 @@
-crime_code,frequency
-354,6
-230,1
-331,1
-420,1
-812,1
+dr_num,area_code,area_name,crime_code,crime_desc,weapon_code,weapon_desc,date_reported,date_occurred,time_occurred,age,sex,race,latitude,longitude
+211208132,12,"77th Street",946,"OTHER MISCELLANEOUS CRIME",NULL,NULL,2021-03-06,2021-03-05,07:00:00,45,F,H,33.9667,-118.2889
+211218123,12,"77th Street",210,ROBBERY,400,"STRONG-ARM (HANDS, FIST, FEET OR BODILY FORCE)",2021-08-21,2021-08-21,23:51:00,51,F,B,33.9897,-118.2915

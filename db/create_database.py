@@ -3,7 +3,7 @@ import pandas as pd
 MAX_ROWS = 10000 #SET THIS TO THE NUMBER OF ROWS YOU WANT TO EXPORT
 
 
-sql_output = open("Production Data.sql", "w", encoding="utf-8")
+sql_output = open("Production data.sql", "w", encoding="utf-8")
 
 df = pd.read_csv("Crime_Data_from_2020_to_Present.csv").head(MAX_ROWS)
 
