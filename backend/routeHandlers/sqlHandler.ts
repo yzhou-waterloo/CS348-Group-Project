@@ -5,6 +5,9 @@ import { PingBody } from '../typedefine'
 import { FieldPacket, RowDataPacket } from 'mysql2';
 const CountByCrimeCode = loadSql("Feature1--count by crime code.sql");
 const CrimeBeforeAfterQuery = loadSql("Feature2--select crime by time.sql");
+const SelectWithCountByArea = loadSql("Feature2--select by count and area.sql")
+const SelectWithCountByTime = loadSql("Feature2--select by count and time.sql")
+
 export default {
     async searchCountByCrimeCode(request: FastifyRequest<{ Querystring: PingBody }>, reply: FastifyReply) {
         const { dr_num } = request.query
@@ -32,6 +35,27 @@ export default {
             reply.status(500).send({ error: 'Database error', details: err });
           }
     },
+    async selectCountByArea(request: FastifyRequest, reply: FastifyReply) {      
+        try {
+            const [rows, fields]: [RowDataPacket[], FieldPacket[]] = await pool.execute(
+                SelectWithCountByArea
+                );
+                reply.send(rows);
+            } catch (err) {
+                reply.status(500).send({ error: 'Database error', details: err });
+            }
+     },
+
+     async selectCountByTime(request: FastifyRequest, reply: FastifyReply) {      
+        try {
+            const [rows, fields]: [RowDataPacket[], FieldPacket[]] = await pool.execute(
+                SelectWithCountByTime
+                );
+                reply.send(rows);
+            } catch (err) {
+                reply.status(500).send({ error: 'Database error', details: err });
+            }
+     },
 
     async randInt(request: FastifyRequest, reply: FastifyReply) {
         const randInt = Math.floor(Math.random() * 1000)

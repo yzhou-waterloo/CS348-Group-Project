@@ -10,6 +10,12 @@ export default {
         server.get("/selectCrimeBefore/:beforeDate/After/:afterDate", {
             handler: sqlHandler.selectCrimeBeforeAfter,
         }),
+        server.get("/countTime", {
+            handler: sqlHandler.selectCountByTime,
+        }),
+        server.get("/countArea", {
+            handler: sqlHandler.selectCountByArea,
+        }),
 
         server.get("/randInt", {
             handler: sqlHandler.randInt,
