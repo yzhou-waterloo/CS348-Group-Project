@@ -22,6 +22,23 @@ export default function Insert() {
     const [status, setStatus] = useState("");
 
     const handleInsertRecords = async () => {
+        if (drNum === "" ||
+            dateRep === "" ||
+            dateOcc === "" ||
+            timeOcc === "" ||
+            areaCode === "" ||
+            areaName === "" ||
+            crimeCode === "" ||
+            crimeDesc === "" ||
+            victAge === "" ||
+            victSex === "" ||
+            victRace === "" ||
+            lat === "" ||
+            lon === ""
+        ) {
+            return;
+        }
+
         try {
           const requestBody = {
               "dr_num": drNum,
@@ -71,6 +88,7 @@ export default function Insert() {
                 variant="outlined"
                 value={drNum}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => setDrNum(e.target.value)}
+                required
                 />
             </div>
 
@@ -82,6 +100,7 @@ export default function Insert() {
                 variant="outlined"
                 value={dateRep}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => setDateRep(e.target.value)}
+                required
                 />
             </div>
 
@@ -93,6 +112,7 @@ export default function Insert() {
                 variant="outlined"
                 value={dateOcc}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => setDateOcc(e.target.value)}
+                required
                 />
             </div>
 
@@ -104,6 +124,7 @@ export default function Insert() {
                 variant="outlined"
                 value={timeOcc}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTimeOcc(e.target.value)}
+                required
                 />
             </div>
 
@@ -115,6 +136,7 @@ export default function Insert() {
                 variant="outlined"
                 value={areaCode}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => setAreaCode(e.target.value)}
+                required
                 />
             </div>
 
@@ -126,6 +148,7 @@ export default function Insert() {
                 variant="outlined"
                 value={areaName}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => setAreaName(e.target.value)}
+                required
                 />
             </div>
 
@@ -137,6 +160,7 @@ export default function Insert() {
                 variant="outlined"
                 value={crimeCode}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCrimeCode(e.target.value)}
+                required
                 />
             </div>
 
@@ -148,6 +172,7 @@ export default function Insert() {
                 variant="outlined"
                 value={crimeDesc}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCrimeDesc(e.target.value)}
+                required
                 />
             </div>
 
@@ -159,6 +184,7 @@ export default function Insert() {
                 variant="outlined"
                 value={victAge}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => setVictAge(e.target.value)}
+                required
                 />
             </div>
 
@@ -170,6 +196,7 @@ export default function Insert() {
                 variant="outlined"
                 value={victSex}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => setVictSex(e.target.value)}
+                required
                 />
             </div>
 
@@ -181,6 +208,7 @@ export default function Insert() {
                 variant="outlined"
                 value={victRace}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => setVictRace(e.target.value)}
+                required
                 />
             </div>
 
@@ -214,6 +242,7 @@ export default function Insert() {
                 variant="outlined"
                 value={lat}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => setLat(e.target.value)}
+                required
                 />
             </div>
 
@@ -225,6 +254,7 @@ export default function Insert() {
                 variant="outlined"
                 value={lon}
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => setLon(e.target.value)}
+                required
                 />
             </div>
             <div className="flex justify-center items-center">

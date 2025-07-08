@@ -1,12 +1,17 @@
 'use client'
 
 import React, {useState} from "react"
+import TextField from "@mui/material/TextField";
 
 export default function Delete() {
   const [drNum, setDrNum] = useState("");
   const [status, setStatus] = useState("");
 
   const handleDeleteRecord = async () => {
+    if (drNum == "") {
+        return;
+    }
+
     try {
       const response = await fetch("http://localhost:8080/delete_record", {
         method: "DELETE",
@@ -38,13 +43,23 @@ export default function Delete() {
             <button className="bg-black text-white p-2 rounded-lg m-1" onClick={() => handleDeleteRecord()}>
             Delete Record
             </button>
-            <input 
+            <TextField 
+                id="filter-text" 
+                label="DR Num"
+                variant="outlined"
+                value={drNum}
+                onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                    setDrNum(event.target.value);
+                }}
+                required
+            />
+            {/* <input 
             className="bg-white text-black border border-black p-2 rounded-lg m-1"
             type="text"
             placeholder="DR Num"
             value={drNum}
             onChange={(e) => setDrNum(e.target.value)}
-            />
+            /> */}
         </div>
         <div className="flex justify-center items-center">
             {

@@ -36,6 +36,7 @@ export default function Filter(props: FilterProps) {
                 onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                     props.setFilterVal(event.target.value);
                 }}
+                required
             />
         </div>
     )

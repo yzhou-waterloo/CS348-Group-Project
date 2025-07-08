@@ -94,6 +94,12 @@ export default function Get() {
   }
 
   const handleGetRecords = async () => {
+    if ((drNum === "" && drNumVis) ||
+        (dateOcc === "" && dateOccVis) ||
+        (areaName === "" && areaNameVis)) {
+      return;
+    }
+
     try {
       const requestBody = {
           "dr_num": drNum,
