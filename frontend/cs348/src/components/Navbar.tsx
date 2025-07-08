@@ -9,6 +9,7 @@ export default function Navbar() {
             <Link className="p-2 m-2 bg-white border text-3xl border-black rounded-lg" href="/get">Get</Link>
             <Link className="p-2 m-2 bg-white border text-3xl border-black rounded-lg" href="/delete">Delete</Link>
             <Link className="p-2 m-2 bg-white border text-3xl border-black rounded-lg" href="/insert">Insert</Link>
+            <Link className="p-2 m-2 bg-white border text-3xl border-black rounded-lg" href="/analytics">Analytics</Link>
         </div>
     );
 }
