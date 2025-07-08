@@ -16,6 +16,9 @@ export default {
         server.get("/countArea", {
             handler: sqlHandler.selectCountByArea,
         }),
+        server.post("/selectWithFilter", {
+            handler: sqlHandler.selectWithFilter,
+        }),
 
         server.get("/randInt", {
             handler: sqlHandler.randInt,
