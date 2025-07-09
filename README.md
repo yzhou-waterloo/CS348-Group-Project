@@ -67,3 +67,27 @@ To run each feature:
 2. View results directly in the output (for Feature1, the ouput will be in feature1.out)
 
 
+HOW TO CREATE PRODUCTION DATASET
+
+1. Open the create_database.py file, change the first variable "MAX_ROWS" to the value you want the production dataset to be (OURS is 10000)
+2. Download Crime_Data_from_2020_to_Present.csv file from the website https://catalog.data.gov/dataset/crime-data-from-2020-to-present
+and put the csv file in the same folder of the python script(db/) 
+3. run python create_database.py
+4. Go to mysql workbench, open the Production Data.sql file, excute it. (make you you have excuted the Create Table.sql already)
+(If you created the sample data before this, add those lines at the top of the Production Data.sql file:
+CREATE DATABASE IF NOT EXISTS crime_db;
+USE crime_db;
+DROP TABLE IF EXISTS Victim;
+DROP TABLE IF EXISTS Coordinates;
+DROP TABLE IF EXISTS Times;
+DROP TABLE IF EXISTS Crime_Records;
+DROP TABLE IF EXISTS Crime;
+DROP TABLE IF EXISTS Area;
+DROP TABLE IF EXISTS Weapon;
+)
+5. This should create the prduction data, if it doesn't, please contact us.
+
+Currently feature1--count with filters, feature2--select by count, feature3--add new records. are implemented in our frontend. 
+the files that contains the implementation have the same file name as the features.
+
+
