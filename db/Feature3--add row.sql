@@ -1,6 +1,3 @@
-INSERT INTO Weapon VALUES
-(?, ?);
-
 INSERT INTO Area VALUES
 (?, ?);
 
