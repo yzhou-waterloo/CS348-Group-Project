@@ -19,6 +19,9 @@ export default {
         server.post("/insert", {
             handler: sqlHandler.insert,
         })
+        server.post("/delete", {
+            handler: sqlHandler.delete,
+        })
 
     }
 }

@@ -22,4 +22,7 @@ export type InsertPayload = {
     weapon_description?: string;
     latitude: number;
     longitude: number;
+}
+export type DeletePayload = {
+    dr_num: string;
 };
