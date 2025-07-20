@@ -20,8 +20,5 @@ export default {
             handler: sqlHandler.insert,
         }),
 
-        server.get("/randInt", {
-            handler: sqlHandler.randInt,
-        })
     }
 }

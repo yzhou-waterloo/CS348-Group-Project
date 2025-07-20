@@ -51,6 +51,10 @@ export default {
         const sql = selectWithFilter + whereClause + ";";
         try {
             const [rows, fields]: [RowDataPacket[], FieldPacket[]] = await pool.query(sql,values);
+            rows.forEach(row => {
+                row.date_occurred = new Date(row.date_occurred).toISOString().split('T')[0];
+                row.date_reported = new Date(row.date_reported).toISOString().split('T')[0];
+              });
                 reply.send(rows);
             } catch (err) {
                 reply.status(500).send({ error: 'Database error', details: err });
@@ -125,9 +129,5 @@ export default {
             }
      },
 
-    async randInt(request: FastifyRequest, reply: FastifyReply) {
-        const randInt = Math.floor(Math.random() * 1000)
-        const response = { randomInteger: randInt }
-        reply.send(response)
-    }
+
 }
