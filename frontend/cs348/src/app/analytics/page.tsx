@@ -27,8 +27,14 @@ const Analytics = () => {
 
       if (timeResponse.ok) {
         const data = await timeResponse.json();
-        setTimeData([data]);
-        console.log(data);
+      const converted = Array.isArray(data)
+        ? data.map((item) => ({
+            ...item,
+            percent: Number(item.percent),
+          }))
+        : [];
+      setTimeData(converted);
+      console.log(converted);
       } else {
         console.error("Error getting records")
       }
@@ -42,8 +48,14 @@ const Analytics = () => {
 
       if (areaResponse.ok) {
         const data = await areaResponse.json();
-        setAreaData([data]);
-        console.log(data);
+      const converted = Array.isArray(data)
+        ? data.map((item) => ({
+            ...item,
+            percent: Number(item.percent),
+          }))
+        : [];
+      setAreaData(converted);
+      console.log(converted);
       } else {
         console.error("Error getting records")
       }
