@@ -9,6 +9,24 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import Filter from "@/components/Filter";
 
+interface RecordData {
+  dr_num: number;
+  date_reported: string;  // Assume ISO format or parse as needed
+  date_occurred: string;
+  time_occurred: string;
+  area_code: number;
+  area_name: string;
+  crime_code: number;
+  crime_desc: string;
+  age: number;
+  sex: string;
+  race: string;
+  weapon_code: number | null;
+  weapon_desc: string | null;
+  latitude: string;
+  longitude: string;
+}
+
 export default function Get() {
   const [addFilterCol, setAddFilterCol] = useState("");
   const [drNum, setDrNum] = useState("");
@@ -18,63 +36,39 @@ export default function Get() {
   const [areaName, setAreaName] = useState("");
   const [areaNameVis, setAreaNameVis] = useState(true);
   const [status, setStatus] = useState("");
-  const [recordData, setRecordData] = useState([{
-    dr_num: "211507896",
-    // time: {
-      date_reported: "04/11/2021",
-      date_occurred: "11/07/2020",
-      time_occurred: "0845",
-    // },
-    // area: {
-      area_code: "15",
-      area_name: "N Hollywood",
-    // },
-    // crime: {
-      crime_code: "354",
-      crime_desc: "THEFT OF IDENTITY",
-    // },
-    // victim: {
-      age: "31",
-      sex: "M",
-      race: "H",
-    // },
-    // weapon: {
-      weapon_code: "",
-      weapon_desc: "",
-    // },
-    // coordinates: {
-      latitude: "34.2124",
-      longitude: "-118.4092",
-    // }
+  const [recordData, setRecordData] = useState<RecordData[]>([{
+    dr_num: 211507896,
+    date_reported: "04/11/2021",
+    date_occurred: "11/07/2020",
+    time_occurred: "0845",
+    area_code: 15,
+    area_name: "N Hollywood",
+    crime_code: 354,
+    crime_desc: "THEFT OF IDENTITY",
+    age: 31,
+    sex: "M",
+    race: "H",
+    weapon_code: null,
+    weapon_desc: null,
+    latitude: "34.2124",
+    longitude: "-118.4092",
   },
   {
-    dr_num: "201516622",
-    // time: {
-      date_reported: "10/21/2022",
-      date_occurred: "07/23/2021",
-      time_occurred: "1145",
-    // },
-    // area: {
-      area_code: "14",
-      area_name: "Pacific",
-    // },
-    // crime: {
-      crime_code: "230",
-      crime_desc: "ASSAULT WITH DEADLY WEAPON, AGGRAVATED ASSAULT",
-    // },
-    // victim: {
-      age: "32",
-      sex: "F",
-      race: "W",
-    // },
-    // weapon: {
-      weapon_code: "200",
-      weapon_desc: "KNIFE WITH BLADE 6INCHES OR LESS",
-    // },
-    // coordinates: {
-      latitude: "34.1994",
-      longitude: "-118.4203"
-    // }
+    dr_num: 201516622,
+    date_reported: "10/21/2022",
+    date_occurred: "07/23/2021",
+    time_occurred: "1145",
+    area_code: 14,
+    area_name: "Pacific",
+    crime_code: 230,
+    crime_desc: "ASSAULT WITH DEADLY WEAPON, AGGRAVATED ASSAULT",
+    age: 32,
+    sex: "F",
+    race: "W",
+    weapon_code: 200,
+    weapon_desc: "KNIFE WITH BLADE 6INCHES OR LESS",
+    latitude: "34.1994",
+    longitude: "-118.4203"
   }
 ]);
 
