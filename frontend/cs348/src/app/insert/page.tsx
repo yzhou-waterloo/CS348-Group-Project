@@ -58,8 +58,8 @@ export default function Insert() {
               "longitude": lon
           }
     
-          const response = await fetch("http://localhost:8080/insert_record", {
-            method: "PUT",
+          const response = await fetch("http://localhost:8080/insert", {
+            method: "POST",
             headers: {
               "Content-Type": "application/json",
             },

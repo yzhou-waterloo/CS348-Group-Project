@@ -3,56 +3,71 @@ import * as React from 'react';
 import { Box } from '@mui/material';
 import SimplePieChart, { PieDataItem } from '../../components/PieChart';
 
-// const handleGet = async () => {
-//     try {
-//       const requestBody = {
-//           "dr_num": drNum,
-//           "date_occurred": dateOcc,
-//           "area_name": areaName
-//       }
-
-//       const response = await fetch("http://localhost:8080/get_records", {
-//         method: "GET",
-//         headers: {
-//           "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify(requestBody),
-//       });
-
-//       if (response.ok) {
-//         const data = await response.json();
-
-//         setRecordData([data]);
-
-//         console.log(data);
-//         setStatus("Success");
-//       } else {
-//         console.error("Error getting records")
-//         setStatus("Error");
-//       }
-//     } catch (error) {
-//       console.error("Error: ", error);
-//       setStatus("Error");
-//     }
-//   }
-
 const Analytics = () => {
   // Map backend fields to required shape
-  const timeData: PieDataItem[] = [
-  { label: "12:00:00", percent: 7.15 },
-  { label: "18:00:00", percent: 6.04 },
-  { label: "20:00:00", percent: 5.85 },
-  { label: "16:00:00", percent: 5.61 },
-  { label: "17:00:00", percent: 5.57 },
-  ];
+  const [timeData, setTimeData] = React.useState<PieDataItem[]>([]);
+  const [areaData, setAreaData] = React.useState<PieDataItem[]>([]);
 
-  const areaData: PieDataItem[] = [
-  { label: "Pacific", percent: 8.92 },
-  { label: "N Hollywood", percent: 8.05 },
-  { label: "Southeast", percent: 7.89 },
-  { label: "Olympic", percent: 7.87 },
-  { label: "Mission", percent: 6.80 },
-];
+//   const areaData: PieDataItem[] = [
+//   { label: "Pacific", percent: 8.92 },
+//   { label: "N Hollywood", percent: 8.05 },
+//   { label: "Southeast", percent: 7.89 },
+//   { label: "Olympic", percent: 7.87 },
+//   { label: "Mission", percent: 6.80 },
+// ];
+
+  const getRecords = async () => {
+    try {
+      const timeResponse = await fetch("http://localhost:8080/countTime", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }); 
+
+      if (timeResponse.ok) {
+        const data = await timeResponse.json();
+      const converted = Array.isArray(data)
+        ? data.map((item) => ({
+            ...item,
+            percent: Number(item.percent),
+          }))
+        : [];
+      setTimeData(converted);
+      console.log(converted);
+      } else {
+        console.error("Error getting records")
+      }
+
+      const areaResponse = await fetch("http://localhost:8080/countArea", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (areaResponse.ok) {
+        const data = await areaResponse.json();
+      const converted = Array.isArray(data)
+        ? data.map((item) => ({
+            ...item,
+            percent: Number(item.percent),
+          }))
+        : [];
+      setAreaData(converted);
+      console.log(converted);
+      } else {
+        console.error("Error getting records")
+      }
+
+    } catch (error) {
+      console.error("Error: ", error);
+    }
+  }
+
+  React.useEffect(() => {
+    getRecords();
+  }, []);
 
   return (
     <Box display="flex" minHeight="100vh" sx={{ 
