@@ -20,61 +20,61 @@ export default function Get() {
   const [status, setStatus] = useState("");
   const [recordData, setRecordData] = useState([{
     dr_num: "211507896",
-    time: {
+    // time: {
       date_reported: "04/11/2021",
       date_occurred: "11/07/2020",
-      time_occurred: "0845"
-    },
-    area: {
+      time_occurred: "0845",
+    // },
+    // area: {
       area_code: "15",
-      area_name: "N Hollywood"
-    },
-    crime: {
+      area_name: "N Hollywood",
+    // },
+    // crime: {
       crime_code: "354",
-      crime_desc: "THEFT OF IDENTITY"
-    },
-    victim: {
+      crime_desc: "THEFT OF IDENTITY",
+    // },
+    // victim: {
       age: "31",
       sex: "M",
-      race: "H"
-    },
-    weapon: {
+      race: "H",
+    // },
+    // weapon: {
       weapon_code: "",
-      weapon_desc: ""
-    },
-    coordinates: {
+      weapon_desc: "",
+    // },
+    // coordinates: {
       latitude: "34.2124",
-      longitude: "-118.4092"
-    }
+      longitude: "-118.4092",
+    // }
   },
   {
     dr_num: "201516622",
-    time: {
+    // time: {
       date_reported: "10/21/2022",
       date_occurred: "07/23/2021",
-      time_occurred: "1145"
-    },
-    area: {
+      time_occurred: "1145",
+    // },
+    // area: {
       area_code: "14",
-      area_name: "Pacific"
-    },
-    crime: {
+      area_name: "Pacific",
+    // },
+    // crime: {
       crime_code: "230",
-      crime_desc: "ASSAULT WITH DEADLY WEAPON, AGGRAVATED ASSAULT"
-    },
-    victim: {
+      crime_desc: "ASSAULT WITH DEADLY WEAPON, AGGRAVATED ASSAULT",
+    // },
+    // victim: {
       age: "32",
       sex: "F",
-      race: "W"
-    },
-    weapon: {
+      race: "W",
+    // },
+    // weapon: {
       weapon_code: "200",
-      weapon_desc: "KNIFE WITH BLADE 6INCHES OR LESS"
-    },
-    coordinates: {
+      weapon_desc: "KNIFE WITH BLADE 6INCHES OR LESS",
+    // },
+    // coordinates: {
       latitude: "34.1994",
       longitude: "-118.4203"
-    }
+    // }
   }
 ]);
 
@@ -107,8 +107,8 @@ export default function Get() {
           "area_name": areaName
       }
 
-      const response = await fetch("http://localhost:8080/get_records", {
-        method: "GET",
+      const response = await fetch("http://localhost:8080/selectWithFilter", {
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
@@ -253,20 +253,20 @@ export default function Get() {
             <tbody key={index}>
               <tr className="bg-white">
                 <td className="p-2 border">{record.dr_num}</td>
-                <td className="p-2 border">{record.time.date_reported}</td>
-                <td className="p-2 border">{record.time.date_occurred}</td>
-                <td className="p-2 border">{record.time.time_occurred}</td>
-                <td className="p-2 border">{record.area.area_code}</td>
-                <td className="p-2 border">{record.area.area_name}</td>
-                <td className="p-2 border">{record.crime.crime_code}</td>
-                <td className="p-2 border">{record.crime.crime_desc}</td>
-                <td className="p-2 border">{record.victim.age}</td>
-                <td className="p-2 border">{record.victim.sex}</td>
-                <td className="p-2 border">{record.victim.race}</td>
-                <td className="p-2 border">{record.weapon.weapon_code || "N/A"}</td>
-                <td className="p-2 border">{record.weapon.weapon_desc || "N/A"}</td>
-                <td className="p-2 border">{record.coordinates.latitude}</td>
-                <td className="p-2 border">{record.coordinates.longitude}</td>
+                <td className="p-2 border">{record.date_reported}</td>
+                <td className="p-2 border">{record.date_occurred}</td>
+                <td className="p-2 border">{record.time_occurred}</td>
+                <td className="p-2 border">{record.area_code}</td>
+                <td className="p-2 border">{record.area_name}</td>
+                <td className="p-2 border">{record.crime_code}</td>
+                <td className="p-2 border">{record.crime_desc}</td>
+                <td className="p-2 border">{record.age}</td>
+                <td className="p-2 border">{record.sex}</td>
+                <td className="p-2 border">{record.race}</td>
+                <td className="p-2 border">{record.weapon_code || "N/A"}</td>
+                <td className="p-2 border">{record.weapon_desc || "N/A"}</td>
+                <td className="p-2 border">{record.latitude}</td>
+                <td className="p-2 border">{record.longitude}</td>
               </tr>
             </tbody>
           ))}
