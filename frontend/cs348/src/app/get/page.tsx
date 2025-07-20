@@ -71,10 +71,22 @@ export default function Get() {
     longitude: "-118.4203"
   }
 ]);
+  const [sortTime, setSortTime] = useState("");
+  const [sortAge, setSortAge] = useState("");
 
   const updateAddFilterCol = (event: SelectChangeEvent) => {
     console.log("Setting to " + event.target.value);
     setAddFilterCol(event.target.value);
+  }
+
+  const updateSetSortTime = (event: SelectChangeEvent) => {
+    console.log("Setting to " + event.target.value);
+    setSortTime(event.target.value);
+  }
+
+  const updateSetSortAge = (event: SelectChangeEvent) => {
+    console.log("Setting to " + event.target.value);
+    setSortAge(event.target.value);
   }
 
   const addNewFilterCol = () => {
@@ -98,7 +110,9 @@ export default function Get() {
       const requestBody = {
           "dr_num": drNum,
           "date_occurred": dateOcc,
-          "area_name": areaName
+          "area_name": areaName,
+          "sort_time": sortTime,
+          "sort_age": sortAge
       }
 
       const response = await fetch("http://localhost:8080/selectWithFilter", {
@@ -197,6 +211,60 @@ export default function Get() {
           />
         }
         
+      </div>
+      <hr/>
+      <div className="m-5">
+        <p className="font-bold text-lg">
+          Sort Rows
+        </p>
+        <div className="mt-2 flex justify-center items-center">
+          <div className="w-1/2">
+            <FormControl fullWidth>
+              <InputLabel id="sortTime-label">Sort Time Occurred</InputLabel>
+              <Select
+                labelId="sortTime-label"
+                value={sortTime}
+                label="Sort Time Occurred"
+                onChange={updateSetSortTime}
+              >
+                <MenuItem value={"ASC"}>Ascending</MenuItem>
+                <MenuItem value={"DESC"}>Descending</MenuItem>
+                <MenuItem value={""}>Default</MenuItem>
+              </Select>
+            </FormControl>
+          </div>
+          
+          <div className="ml-2 w-1/2">
+            <FormControl fullWidth>
+              <InputLabel id="sortAge-label">Sort Victim Age</InputLabel>
+              <Select
+                labelId="sortAge-label"
+                value={sortAge}
+                label="Sort Victim Age"
+                onChange={updateSetSortAge}
+              >
+                <MenuItem value={"ASC"}>Ascending</MenuItem>
+                <MenuItem value={"DESC"}>Descending</MenuItem>
+                <MenuItem value={""}>Default</MenuItem>
+              </Select>
+            </FormControl>
+          </div>
+        </div>
+        {/* <div className="mt-2 w-1/3">
+          <FormControl fullWidth>
+            <InputLabel id="sortAge-label">Sort Victim Age</InputLabel>
+            <Select
+              labelId="sortAge-label"
+              value={sortAge}
+              label="Sort Victim Age"
+              onChange={updateSetSortAge}
+            >
+              <MenuItem value={"ASC"}>Ascending</MenuItem>
+              <MenuItem value={"DESC"}>Descending</MenuItem>
+              <MenuItem value={""}>Default</MenuItem>
+            </Select>
+          </FormControl>
+        </div> */}
       </div>
       
       <div className="flex justify-center items-center">
