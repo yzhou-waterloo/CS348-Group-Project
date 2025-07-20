@@ -1,9 +1,8 @@
-INSERT INTO Area VALUES
+INSERT ignore INTO Area VALUES
 (?, ?);
 
-INSERT INTO Crime VALUES
+INSERT ignore INTO Crime VALUES
 (?, ?);
-
 
 INSERT INTO Crime_Records VALUES
 (?, ?, ?, ?);

@@ -1,8 +1,9 @@
-import { FastifyRequest, FastifyReply } from 'fastify'
+import fastify, { FastifyRequest, FastifyReply } from 'fastify'
 import { loadSql } from '../loadSql.js';
 import pool from '../db.js'
 import { DeletePayload, InsertPayload, PingBody, SearchPayload } from '../typedefine'
 import { FieldPacket, RowDataPacket } from 'mysql2';
+import { console } from 'inspector';
 // const CrimeBeforeAfterQuery = loadSql("Feature2--select crime by time.sql");
 const SelectWithCountByArea = loadSql("Feature2--select by count and area.sql")
 const SelectWithCountByTime = loadSql("Feature2--select by count and time.sql")
@@ -64,7 +65,7 @@ export default {
     async insert(request: FastifyRequest<{ Body: InsertPayload ;
       }>,
       reply: FastifyReply) {
-        const {
+        var {
             dr_num,
             date_reported,
             date_occurred,
@@ -81,10 +82,17 @@ export default {
             latitude,
             longitude
           } = request.body; 
+        
+       
         var weapon_sql = ""
-        if ( weapon_code) {        
-            weapon_sql += `INSERT INTO Weapon VALUES\n(${weapon_code},'${weapon_description}');\n`
-        }        
+        if (weapon_code && weapon_code.trim() !== "") {    
+              
+            weapon_sql += `INSERT ignore INTO Weapon VALUES\n(${weapon_code},'${weapon_description}');\n`
+            
+        } else {
+            weapon_code = null
+            
+        }       
         const Area = [(area_code),area_name]
         const Crime = [(crime_code),crime_description]
         const Crime_Records = [(dr_num),weapon_code, (area_code),(crime_code)]

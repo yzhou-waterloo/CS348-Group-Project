@@ -18,8 +18,8 @@ export type InsertPayload = {
     victim_age: number;
     sex: string;
     race: string;
-    weapon_code?: number;
-    weapon_description?: string;
+    weapon_code?: string | null;
+    weapon_description?: string | null;
     latitude: number;
     longitude: number;
 }

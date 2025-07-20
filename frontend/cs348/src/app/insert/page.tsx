@@ -48,7 +48,7 @@ export default function Insert() {
               "area_code": areaCode,
               "area_name": areaName,
               "crime_code": crimeCode,
-              "crime_desccription": crimeDesc,
+              "crime_description": crimeDesc,
               "victim_age": victAge,
               "sex": victSex,
               "race": victRace,
