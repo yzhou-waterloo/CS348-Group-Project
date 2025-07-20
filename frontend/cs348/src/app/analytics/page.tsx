@@ -8,14 +8,6 @@ const Analytics = () => {
   const [timeData, setTimeData] = React.useState<PieDataItem[]>([]);
   const [areaData, setAreaData] = React.useState<PieDataItem[]>([]);
 
-//   const areaData: PieDataItem[] = [
-//   { label: "Pacific", percent: 8.92 },
-//   { label: "N Hollywood", percent: 8.05 },
-//   { label: "Southeast", percent: 7.89 },
-//   { label: "Olympic", percent: 7.87 },
-//   { label: "Mission", percent: 6.80 },
-// ];
-
   const getRecords = async () => {
     try {
       const timeResponse = await fetch("http://localhost:8080/countTime", {
@@ -30,6 +22,7 @@ const Analytics = () => {
       const converted = Array.isArray(data)
         ? data.map((item) => ({
             ...item,
+            label: item.label + ":00",
             percent: Number(item.percent),
           }))
         : [];
@@ -37,7 +30,7 @@ const Analytics = () => {
       console.log(converted);
       } else {
         console.error("Error getting records")
-      }
+      } 
 
       const areaResponse = await fetch("http://localhost:8080/countArea", {
         method: "GET",

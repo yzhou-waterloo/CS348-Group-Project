@@ -11,6 +11,16 @@ area_code_used = set()
 crime_code_used = set()
 weapon_code_used = set()
 
+sql_output.write(
+"USE crime_db; \n"
+"DELETE FROM Victim; \n"
+"DELETE FROM Coordinates; \n"
+"DELETE FROM Times; \n"
+"DELETE FROM Crime_Records; \n"
+"DELETE FROM Crime; \n"
+"DELETE FROM Area; \n"
+"DELETE FROM Weapon; \n")
+
 for _, row in df.iterrows():
     try:
         dr_num = int(row["DR_NO"])
