@@ -48,12 +48,12 @@ export default function Insert() {
               "area_code": areaCode,
               "area_name": areaName,
               "crime_code": crimeCode,
-              "crime_desc": crimeDesc,
-              "age": victAge,
+              "crime_desccription": crimeDesc,
+              "victim_age": victAge,
               "sex": victSex,
               "race": victRace,
               "weapon_code": weapCode,
-              "weapon_desc": weapDesc,
+              "weapon_description": weapDesc,
               "latitude": lat,
               "longitude": lon
           }
