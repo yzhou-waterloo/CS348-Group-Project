@@ -112,7 +112,7 @@ export default function Get() {
       if (response.ok) {
         const data = await response.json();
 
-        setRecordData([data]);
+        setRecordData(data);
 
         console.log(data);
         setStatus("Success");
