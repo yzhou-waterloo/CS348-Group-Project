@@ -6,7 +6,8 @@ const pool = mysql.createPool({
   password: 'password',
   database: 'crime_db',
   waitForConnections: true,
-  connectionLimit: 10
+  connectionLimit: 10,
+  multipleStatements: true // <--- THIS IS REQUIRED
 }).promise();
 
 
