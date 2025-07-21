@@ -29,9 +29,10 @@ export default {
     async selectWithFilter(request: FastifyRequest<{ Body: SearchPayload ;
       }>,
       reply: FastifyReply) {
-        const { dr_num, date_occurred, area_name } = request.body;
-        console.log(dr_num, date_occurred, area_name)
+        const { dr_num, date_occurred, area_name, sort_time, sort_age } = request.body;
+        console.log(dr_num, date_occurred, area_name, sort_time, sort_age)
         const conditions: string[] = [];
+        const order: string[] = [];
         const values: any[] = [];
 
         if (dr_num && dr_num.trim() !== "") {
@@ -49,8 +50,17 @@ export default {
             values.push(area_name.trim());        
         }
 
+        if (sort_time && sort_time.trim() !== "") {
+            order.push("t.time_occurred" + sort_time.trim())
+        }
+
+        if (sort_age && sort_age.trim() !== "") {
+            order.push("v.age" + sort_age.trim())
+        }
+
         const whereClause = conditions.length > 0 ? `WHERE ${conditions.join(' AND ')}` : '';
-        const sql = selectWithFilter + whereClause + ";";
+        const orderClause = order.length > 0 ? `ORDER BY ${order.join(', ')}` : '';
+        const sql = selectWithFilter + whereClause + orderClause + ";";
         try {
             const [rows, fields]: [RowDataPacket[], FieldPacket[]] = await pool.query(sql,values);
             rows.forEach(row => {

@@ -5,6 +5,8 @@ export type SearchPayload = {
     dr_num?: string;
     date_occurred?: string;
     area_name?: string;
+    sort_time?: string;
+    sort_age?: string;
 }
 export type InsertPayload = {
     dr_num: number;
