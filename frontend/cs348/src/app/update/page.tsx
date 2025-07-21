@@ -30,7 +30,12 @@ export default function Update() {
           });
     
           if (response.ok) {
+
+            // DEBUG
+            console.log("update successful")
+
             const json = await response.json();
+            console.log("Response JSON: ", json);
 
             setStatus("Successfully updated the weapon description of record with DR Num = " + drNum + " to " + json.weapon_description);
           } else {
