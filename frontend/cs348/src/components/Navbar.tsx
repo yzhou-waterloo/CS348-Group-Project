@@ -6,6 +6,7 @@ import { useAdmin } from '@/app/AdminContext'
 import Dialog from "@mui/material/Dialog"
 import { Button, DialogActions, DialogContent, DialogTitle, IconButton, styled, TextField, Typography } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close';
+import { usePathname } from 'next/navigation';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
         '& .MuiDialogContent-root': {
@@ -20,6 +21,7 @@ const ADMIN_USER = "admin";
 const ADMIN_PASS = "cs348";
 
 export default function Navbar() {
+    const pathname = usePathname();
     const { admin_loggedin, setAdminLoggedin } = useAdmin()
     const [adminLoginOpen, setAdminLoginOpen] = useState(false);
     const [username, setUsername] = useState('');
@@ -110,16 +112,16 @@ export default function Navbar() {
                 </DialogActions>
             </BootstrapDialog>
                         
-            <Link className="p-2 m-2 bg-white border text-3xl border-black rounded-lg" href="/get">Get</Link>
-            <Link className="p-2 m-2 bg-white border text-3xl border-black rounded-lg" href="/analytics">Analytics</Link>
+            <Link className={`p-2 m-2 border text-3xl border-black rounded-lg ${pathname === "/get" ? 'bg-gray-300' : 'bg-white'}`} href="/get">Get</Link>
+            <Link className={`p-2 m-2 border text-3xl border-black rounded-lg ${pathname === "/analytics" ? 'bg-gray-300' : 'bg-white'}`} href="/analytics">Analytics</Link>
             {admin_loggedin && (
-                <Link className="p-2 m-2 bg-white border text-3xl border-black rounded-lg" href="/insert">Insert</Link>
+                <Link className={`p-2 m-2 border text-3xl border-black rounded-lg ${pathname === "/insert" ? 'bg-gray-300' : 'bg-white'}`} href="/insert">Insert</Link>
             )}
             {admin_loggedin && (
-                <Link className="p-2 m-2 bg-white border text-3xl border-black rounded-lg" href="/delete">Delete</Link>
+                <Link className={`p-2 m-2 border text-3xl border-black rounded-lg ${pathname === "/delete" ? 'bg-gray-300' : 'bg-white'}`} href="/delete">Delete</Link>
             )}
             {admin_loggedin && (
-                <Link className="p-2 m-2 bg-white border text-3xl border-black rounded-lg" href="/update">Update</Link>
+                <Link className={`p-2 m-2 border text-3xl border-black rounded-lg ${pathname === "/update" ? 'bg-gray-300' : 'bg-white'}`} href="/update">Update</Link>
             )}
         </div>
     );

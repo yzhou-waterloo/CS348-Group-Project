@@ -80,6 +80,9 @@ export default function Insert() {
 
     return (
         <div className="font-[family-name:var(--font-geist-sans)]">
+            <p className="font-bold text-lg mb-2 ml-5">
+                Insert Record
+            </p>
             <div className="flex justify-left items-center mb-2 ml-5">
                 <p className="mr-2">DR Num</p>
                 <TextField
@@ -265,8 +268,8 @@ export default function Insert() {
             <div className="flex justify-center items-center">
                 {
                     status && (
-                        status ?
-                            <div className="text-green-500">Record deleted successfully</div>
+                        status === "Error" ?
+                            <div className="text-green-500">Record inserted successfully</div>
                         :
                         <div className="text-red-500">Error</div>
                     )   
