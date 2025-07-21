@@ -165,7 +165,7 @@ export default {
       const { dr_num, weapon_code, weapon_description } = request.body;    
        
       try {
-          const [rows, fields]: [RowDataPacket[], FieldPacket[]] = await pool.query(updateSQL,[ weapon_code,weapon_description,weapon_code,dr_num]);
+          const [rows, fields]: [RowDataPacket[], FieldPacket[]] = await pool.query(updateSQL,[ weapon_code,weapon_description,weapon_code,dr_num,weapon_code]);
               reply.send(rows);
           } catch (err) {
               reply.status(500).send({ error: 'Database error', details: err });
