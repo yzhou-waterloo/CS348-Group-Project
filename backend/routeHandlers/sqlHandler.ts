@@ -52,11 +52,11 @@ export default {
         }
 
         if (sort_time && sort_time.trim() !== "") {
-            order.push("t.time_occurred" + sort_time.trim())
+            order.push("t.time_occurred " + sort_time.trim())
         }
 
         if (sort_age && sort_age.trim() !== "") {
-            order.push("v.age" + sort_age.trim())
+            order.push("v.age " + sort_age.trim())
         }
 
         const whereClause = conditions.length > 0 ? `WHERE ${conditions.join(' AND ')}` : '';
