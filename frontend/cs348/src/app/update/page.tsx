@@ -37,7 +37,7 @@ export default function Update() {
             const json = await response.json();
             console.log("Response JSON: ", json);
 
-            setStatus("Successfully updated the weapon description of record with DR Num = " + drNum + " to " + json.weapon_description);
+            setStatus("Successfully updated the weapon description of record with DR Num = " + drNum + " to " + json.weapon_desc);
           } else {
             console.error("Error inserting record")
             setStatus("Error");
@@ -98,7 +98,7 @@ export default function Update() {
             <div className="flex justify-center items-center">
                 {
                     status && (
-                        status === "Error" ?
+                        status !== "Error" ?
                             <div className="text-green-500">{status}</div>
                         :
                         <div className="text-red-500">Error</div>
