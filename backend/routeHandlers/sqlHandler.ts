@@ -166,7 +166,9 @@ export default {
        
       try {
           const [rows, fields]: [RowDataPacket[], FieldPacket[]] = await pool.query(updateSQL,[ weapon_code,weapon_description,weapon_code,dr_num,weapon_code]);
-              reply.send(rows);
+          const result = rows[2][0];
+              reply.send(result);
+
           } catch (err) {
               reply.status(500).send({ error: 'Database error', details: err });
           }
