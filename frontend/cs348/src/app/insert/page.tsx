@@ -213,7 +213,7 @@ export default function Insert() {
             </div>
 
             <div className="flex justify-left items-center mb-2 ml-5">
-                <p className="mr-2">Weapon Code</p>
+                <p className="mr-2">Weapon Code (optional)</p>
                 <TextField
                 id="weapcode-text"
                 label="Weapon Code"
@@ -224,7 +224,7 @@ export default function Insert() {
             </div>
 
             <div className="flex justify-left items-center mb-2 ml-5">
-                <p className="mr-2">Weapon Description</p>
+                <p className="mr-2">Weapon Description (only required for new weapon codes)</p>
                 <TextField
                 id="weapdesc-text"
                 label="Weapon Description"
@@ -258,20 +258,24 @@ export default function Insert() {
                 />
             </div>
             <div className="flex justify-center items-center">
+                {
+                    status && (
+                        status == "Success" ?
+                            <div className="text-green-500 text-xl">Record inserted successfully</div>
+                        :
+                        <div className="text-red-500 text-xl">
+                            Failed to insert record. Please check for possible duplicate dr_num, invalid date/time format, 
+                            or missing mandatory fields and try again
+                        </div>
+                    )   
+                }
+            </div>
+            <div className="flex justify-center items-center">
                 <button className="bg-black text-white p-2 rounded-lg mb-3 text-lg" onClick={() => handleInsertRecords()}>
                     Insert Record
                 </button>
             </div>
-            <div className="flex justify-center items-center">
-                {
-                    status && (
-                        status ?
-                            <div className="text-green-500">Record deleted successfully</div>
-                        :
-                        <div className="text-red-500">Error</div>
-                    )   
-                }
-            </div>
+            
         </div>
     );
 }
