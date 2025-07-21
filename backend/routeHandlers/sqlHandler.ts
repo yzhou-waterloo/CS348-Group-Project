@@ -1,15 +1,16 @@
 import fastify, { FastifyRequest, FastifyReply } from 'fastify'
 import { loadSql } from '../loadSql.js';
 import pool from '../db.js'
-import { DeletePayload, InsertPayload, PingBody, SearchPayload } from '../typedefine'
+import { DeletePayload, InsertPayload, PingBody, SearchPayload, UpdatePayload } from '../typedefine'
 import { FieldPacket, RowDataPacket } from 'mysql2';
 import { console } from 'inspector';
 // const CrimeBeforeAfterQuery = loadSql("Feature2--select crime by time.sql");
+const selectWithFilter = loadSql("Feature1--Select with Filters.sql");
 const SelectWithCountByArea = loadSql("Feature2--select by count and area.sql")
 const SelectWithCountByTime = loadSql("Feature2--select by count and time.sql")
-const selectWithFilter = loadSql("Feature1--Select with Filters.sql");
 const insert = loadSql("Feature3--add row.sql");
 const deleteSQL = loadSql("Feature4--delete by dr num.sql");
+const updateSQL = loadSql("Feature5--Update.sql");
 export default {
     // async selectCrimeBeforeAfter(request: FastifyRequest<{ Params: { beforeDate: string; afterDate: string };
     //   }>,
@@ -158,6 +159,17 @@ export default {
            } catch (err) {
                reply.status(500).send({ error: 'Database error', details: err });
            }
+    },
+    async update(request: FastifyRequest<{ Body: UpdatePayload ;
+    }>, reply: FastifyReply) {
+      const { dr_num, weapon_code, weapon_description } = request.body;    
+       
+      try {
+          const [rows, fields]: [RowDataPacket[], FieldPacket[]] = await pool.query(updateSQL,[ weapon_code,weapon_description,weapon_code,dr_num]);
+              reply.send(rows);
+          } catch (err) {
+              reply.status(500).send({ error: 'Database error', details: err });
+          }
    },
 
 }

@@ -28,3 +28,8 @@ export type InsertPayload = {
 export type DeletePayload = {
     dr_num: string;
 };
+export type UpdatePayload = {
+    dr_num: string;
+    weapon_code: string; 
+    weapon_description: string
+};
