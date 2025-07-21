@@ -39,38 +39,37 @@ export default function Delete() {
 
   return (
     <div className="font-[family-name:var(--font-geist-sans)]">
-        <div className="flex justify-center items-center">
-            <button className="bg-black text-white p-2 rounded-lg m-1" onClick={() => handleDeleteRecord()}>
-            Delete Record
-            </button>
-            <TextField 
-                id="filter-text" 
-                label="DR Num"
-                variant="outlined"
-                value={drNum}
-                onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                    setDrNum(event.target.value);
-                }}
-                required
-            />
-            {/* <input 
-            className="bg-white text-black border border-black p-2 rounded-lg m-1"
-            type="text"
-            placeholder="DR Num"
+      <p className="font-bold text-lg mb-2 ml-5">
+          Delete Weapon
+      </p>
+      <div className="flex justify-left items-center mb-2 ml-5">
+        <p className="mr-2">DR Num</p>
+        <TextField 
+            id="filter-text" 
+            label="DR Num"
+            variant="outlined"
             value={drNum}
-            onChange={(e) => setDrNum(e.target.value)}
-            /> */}
-        </div>
-        <div className="flex justify-center items-center">
-            {
-                status && (
-                    status ?
-                        <div className="text-green-500">Record deleted successfully</div>
-                    :
-                    <div className="text-red-500">Error</div>
-                )   
-            }
-        </div>
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                setDrNum(event.target.value);
+            }}
+            required
+        />
+      </div>
+      <div className="flex justify-center items-center">
+          <button className="bg-black text-white p-2 rounded-lg mb-3 text-lg" onClick={() => handleDeleteRecord()}>
+              Delete Record
+          </button>
+      </div>
+      <div className="flex justify-center items-center">
+          {
+              status && (
+                  status ?
+                      <div className="text-green-500">Record deleted successfully</div>
+                  :
+                  <div className="text-red-500">Error</div>
+              )   
+          }
+      </div>
     </div>
   );
 }

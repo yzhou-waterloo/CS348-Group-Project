@@ -142,10 +142,10 @@ export default function Get() {
 
   return (
     <div className="font-[family-name:var(--font-geist-sans)]">
-      <div className="m-5">
-        <p className="font-bold text-lg">
-          Add Filter
-        </p>
+      <p className="font-bold text-lg mb-2 ml-5">
+        Add Filter
+      </p>
+      <div className="ml-5">
         <div className="flex justify-center items-center border border-black p-2 rounded-lg">
           <IconButton 
             aria-label="add" 
@@ -180,7 +180,7 @@ export default function Get() {
             </Select>
           </FormControl>
         </div>
-        <p className="font-bold text-lg mt-2">
+        <p className="font-bold text-lg mt-2 mb-2">
           Filters
         </p>
         {
@@ -282,7 +282,7 @@ export default function Get() {
       <div className="flex justify-center items-center">
         {
           status && (
-            status ?
+            status === "Error" ?
                 <div className="text-green-500">Record(s) returned successfully</div>
             :
             <div className="text-red-500">Error</div>
