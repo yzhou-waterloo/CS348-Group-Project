@@ -151,7 +151,6 @@ export default {
      async delete(request: FastifyRequest<{ Body: DeletePayload ;
      }>, reply: FastifyReply) {
        const { dr_num } = request.body;    
-        [ dr_num,dr_num,dr_num,dr_num]
        try {
            const [rows, fields]: [RowDataPacket[], FieldPacket[]] = await pool.query(deleteSQL,[ dr_num,dr_num,dr_num,dr_num]);
 
