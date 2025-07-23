@@ -18,7 +18,7 @@ export default function Delete() {
         "dr_num": drNum,
       }
 
-      const response = await fetch("http://localhost:8080/delete_record", {
+      const response = await fetch("http://localhost:8080/delete", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
