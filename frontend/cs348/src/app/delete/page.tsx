@@ -38,7 +38,7 @@ export default function Delete() {
         // }
       } else {
         console.error("Error getting record with dr_num: " + drNum)
-        setStatus("Error");
+        setStatus("Failed to delete record, please check if is a valid DR Num");
       }
     } catch (error) {
       console.error("Error: ", error);
