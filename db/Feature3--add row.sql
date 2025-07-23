@@ -1,3 +1,4 @@
+START TRANSACTION;
 INSERT ignore INTO Area VALUES
 (?, ?);
 
@@ -15,3 +16,4 @@ INSERT INTO Coordinates VALUES
 
 INSERT INTO Victim VALUES
 (?, ?, ?, ?);
+COMMIT;
