@@ -263,7 +263,7 @@ export default function Insert() {
             <div className="flex justify-center items-center">
                 {
                     status && (
-                        status == "Success" ?
+                        status !== "Error" ?
                             <div className="text-green-500 text-xl">Record inserted successfully</div>
                         :
                         <div className="text-red-500 text-xl">

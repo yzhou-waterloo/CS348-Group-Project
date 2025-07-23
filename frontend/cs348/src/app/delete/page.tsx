@@ -30,7 +30,12 @@ export default function Delete() {
         const data = await response.json();
 
         console.log(data);
-        setStatus("Success");
+
+        if (data.dr_num_exist) {
+          setStatus("Record deleted successfully");
+        } else {
+          setStatus("Record with provided DR Num does not exist");
+        }
       } else {
         console.error("Error getting record with dr_num: " + drNum)
         setStatus("Error");
@@ -68,8 +73,8 @@ export default function Delete() {
       <div className="flex justify-center items-center">
           {
               status && (
-                  status ?
-                      <div className="text-green-500">Record deleted successfully</div>
+                  status !== "Error" ?
+                      <div className="text-green-500">{status}</div>
                   :
                   <div className="text-red-500">Error</div>
               )   

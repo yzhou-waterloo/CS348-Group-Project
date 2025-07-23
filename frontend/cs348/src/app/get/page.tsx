@@ -282,7 +282,7 @@ export default function Get() {
       <div className="flex justify-center items-center">
         {
           status && (
-            status === "Error" ?
+            status !== "Error" ?
                 <div className="text-green-500">Record(s) returned successfully</div>
             :
             <div className="text-red-500">Error</div>
