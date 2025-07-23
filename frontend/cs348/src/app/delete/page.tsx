@@ -27,22 +27,22 @@ export default function Delete() {
       });
 
       if (response.ok) {
-        const data = await response.json();
+        // const data = await response.json();
 
-        console.log(data);
+        // console.log(data);
 
-        if (data.dr_num_exist) {
-          setStatus("Record deleted successfully");
-        } else {
-          setStatus("Record with provided DR Num does not exist");
-        }
+        // if (data.dr_num_exist) {
+        setStatus("Record deleted successfully");
+        // } else {
+        //   setStatus("Record with provided DR Num does not exist");
+        // }
       } else {
         console.error("Error getting record with dr_num: " + drNum)
         setStatus("Error");
       }
     } catch (error) {
       console.error("Error: ", error);
-      setStatus("Error");
+      setStatus("Failed to delete record, please check if is a valid DR Num");
     }
   }
 
@@ -50,7 +50,7 @@ export default function Delete() {
   return (
     <div className="font-[family-name:var(--font-geist-sans)]">
       <p className="font-bold text-lg mb-2 ml-5">
-          Delete Weapon
+          Delete Record
       </p>
       <div className="flex justify-left items-center mb-2 ml-5">
         <p className="mr-2">DR Num</p>
