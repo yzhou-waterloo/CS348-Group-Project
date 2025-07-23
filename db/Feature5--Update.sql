@@ -1,8 +1,11 @@
-INSERT ignore INTO Weapon VALUES
-(?, ?);
+START TRANSACTION;
+
+INSERT IGNORE INTO Weapon VALUES (?, ?);
 
 UPDATE Crime_Records
 SET weapon_code = ?
 WHERE dr_num = ?;
 
-SELECT weapon_desc from Weapon where weapon_code = ?;
+COMMIT;
+
+SELECT weapon_desc FROM Weapon WHERE weapon_code = ?;
