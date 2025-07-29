@@ -16,8 +16,17 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000)
 - [http://localhost:3000/get](http://localhost:3000/get) to view the GET page
-- [http://localhost:3000/delete](http://localhost:3000/delete) to view the DELETE page
-- [http://localhost:3000/insert](http://localhost:3000/insert) to view the INSERT page
+- [http://localhost:3000/analytics](http://localhost:3000/analytics) to view the ANALYTICS page
+- [http://localhost:3000/insert](http://localhost:3000/insert) to view the INSERT page (Admin Only)
+- [http://localhost:3000/delete](http://localhost:3000/delete) to view the DELETE page (Admin Only)
+- [http://localhost:3000/update](http://localhost:3000/update) to view the UPDATE page (Admin Only)
+
+Steps to Log In as Admin:
+1. Click "Admin Login" in the top right
+2. Fill in Admin Info -> Username = "admin", Password = "cs348"
+3. Click Login
+
+After logging in, you will now have access to the INSERT, DELETE, and UPDATE page
 
 ___
 Backend:
