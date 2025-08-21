@@ -85,6 +85,7 @@ and put the csv file in the same folder of the python script(db/)
 4. Go to mysql workbench, open the Production Data.sql file, excute it. (make you you have excuted the Create Table.sql already)
 (If you created the sample data before this, add those lines at the top of the Production Data.sql file:
 CREATE DATABASE IF NOT EXISTS crime_db;
+```sql
 USE crime_db;
 DROP TABLE IF EXISTS Victim;
 DROP TABLE IF EXISTS Coordinates;
@@ -94,7 +95,8 @@ DROP TABLE IF EXISTS Crime;
 DROP TABLE IF EXISTS Area;
 DROP TABLE IF EXISTS Weapon;
 )
-5. This should create the prduction data, if it doesn't, please contact us.
+```
+6. This should create the prduction data, if it doesn't, please contact us.
 
 Currently feature1--count with filters, feature2--select by count, feature3--add new records. are implemented in our frontend. 
 the files that contains the implementation have the same file name as the features.
